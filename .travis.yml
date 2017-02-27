@@ -32,7 +32,6 @@ deploy:
     branch: "master"
     repo: promact-karan/Travis_android
     
-      git tag -a v.1.0.0 -m "Travis build  pushed a tag."
-      git push origin --tags
-      git fetch origin
+      after_success:
+        - sh tags.sh
 

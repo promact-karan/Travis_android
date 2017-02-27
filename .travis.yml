@@ -31,7 +31,7 @@ deploy:
   on:
     repo: promact-karan/Travis_android
     
-     git tag -a v.1.0.0 -m "Travis build $TRAVIS_BUILD_NUMBER pushed a tag."
+     git tag -a v.1.0.0 -m "Travis build pushed a tag."
       git push origin --tags
       git fetch origin
 

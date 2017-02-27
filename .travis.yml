@@ -1,30 +1,14 @@
 language: android
 jdk: oraclejdk8
-sudo: required 
+sudo: required
 env:
-    global:
-        - ANDROID TOOLS_API=24
-        - ANDROID_BUILD_TOOLS=24.0.2
-        
-android:
+  global:
+  - ANDROID TOOLS_API=24
+  - ANDROID_BUILD_TOOLS=24.0.2
+android: 
 components:
-# Uncomment the lines below if you want to
-# use the latest revision of Android SDK Tools
 - platform-tools
 - tools
-
-# The BuildTools version used by your project
-
-
-# The SDK version used to compile your project
-
-
-
-# Specify at least one system image,
-# if you need to run emulator(s) during your tests
-#- sys-img-armeabi-v7a-android-22
-#- sys-img-armeabi-v7a-android-17
-
 before_install:
 - mkdir "$ANDROID_HOME/licenses" || true
 - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
@@ -38,3 +22,11 @@ before_script:
 - adb shell input keyevent 82 &
 script:
 - "./gradlew clean build connectedAndroidTest -PdisablePreDex --stacktrace"
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: AGXznxrPSSbT20iLuDFMxMf+AGdV7s3emlz9QYJFcy/TEupUvTX5VWU7VOoV6Oz/7I9BitiYoMrX0P5e+fxjUSRWWKaOnknmelXSru27qkLWtBk4OUZjpdGVzQfjGRLJLqp7RpJlVFs7BEgDoy6dn/uNZxyW9AGfRjmf00FoRP1NXeuDl3BwYp1/v1r8/4+KkmILJE8Eew9XtwJEGDzXAFiEqZ/ZevODEkuh+3lhXGHyICrKy6lJSiCDf8WmN24oSm0IX8KBf7M1HVjY1dMFCWEhL/LpQYeb9H3ZDptJUJkxVWIEhPumQ3Yg9lsKktA4KVyuFt3aOLPVPwsInNHT4VM2BNqG7tFrfvAL2svfZeYatFwCgCeO6Rfx1dpXrrUDcCvt+tnMYVDtC5fpqARhz1pMuoTdTjuczGrQ2U25UrrMkARY6azsYNeVdzks4aFd954Y41ubvmigQ2qVed6PklFp2xvIqJMg4CT41IiAbYYztWhoOzaAZMpvzNLCJdoc0njghCbgTFFCjuXCIoC1/k2ehHDuzQ6VXIaim8OTXneZfKE8usFweG+Aka4e/XWTsATKFK0Irf5NXAS7Jqw61bLFvhgzZKrLbkRTxC0zl8VOj7Dgxkv1+Hdu7a4sprMvEgvh3zyQWIxC/5/OlXuhOBZz60uDSW/TPNIacQdvlB4=
+  file: "./app/build/outputs/apk/app-release-unsigned.apk"
+  on:
+    repo: promact-karan/Travis_android

@@ -32,6 +32,6 @@ deploy:
     branch: "master"
     repo: promact-karan/Travis_android
     
-      after_success:
-        - sh tags.sh
+after_success:
+- sh tags.sh
 

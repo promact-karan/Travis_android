@@ -29,7 +29,7 @@ deploy:
     secure: AGXznxrPSSbT20iLuDFMxMf+AGdV7s3emlz9QYJFcy/TEupUvTX5VWU7VOoV6Oz/7I9BitiYoMrX0P5e+fxjUSRWWKaOnknmelXSru27qkLWtBk4OUZjpdGVzQfjGRLJLqp7RpJlVFs7BEgDoy6dn/uNZxyW9AGfRjmf00FoRP1NXeuDl3BwYp1/v1r8/4+KkmILJE8Eew9XtwJEGDzXAFiEqZ/ZevODEkuh+3lhXGHyICrKy6lJSiCDf8WmN24oSm0IX8KBf7M1HVjY1dMFCWEhL/LpQYeb9H3ZDptJUJkxVWIEhPumQ3Yg9lsKktA4KVyuFt3aOLPVPwsInNHT4VM2BNqG7tFrfvAL2svfZeYatFwCgCeO6Rfx1dpXrrUDcCvt+tnMYVDtC5fpqARhz1pMuoTdTjuczGrQ2U25UrrMkARY6azsYNeVdzks4aFd954Y41ubvmigQ2qVed6PklFp2xvIqJMg4CT41IiAbYYztWhoOzaAZMpvzNLCJdoc0njghCbgTFFCjuXCIoC1/k2ehHDuzQ6VXIaim8OTXneZfKE8usFweG+Aka4e/XWTsATKFK0Irf5NXAS7Jqw61bLFvhgzZKrLbkRTxC0zl8VOj7Dgxkv1+Hdu7a4sprMvEgvh3zyQWIxC/5/OlXuhOBZz60uDSW/TPNIacQdvlB4=
   file: "./app/build/outputs/apk/app-release-unsigned.apk"
   on:
-   # branch: "master"
+    branch: "master"
     repo: promact-karan/Travis_android
     
 after_success:
